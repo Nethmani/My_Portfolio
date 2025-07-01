@@ -7,8 +7,6 @@ import { TypeAnimation } from "react-type-animation";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import {
-  FaGithub,
-  FaLinkedin,
   FaDownload,
   FaCode,
   FaRocket,
@@ -49,13 +47,15 @@ export default function Home() {
     },
     {
       icon: FaLightbulb,
-      title: "Quality Assurance",
-      description: "Ensuring flawless user experiences through testing",
+      title: "IT Support",
+      description:
+        "Providing technical assistance and ensuring smooth system operations",
     },
     {
       icon: FaRocket,
-      title: "Performance Focused",
-      description: "Building scalable and optimized applications",
+      title: "UI/UX Designer",
+      description:
+        "Designing intuitive, user-centered interfaces that enhance user experience",
     },
   ];
 
@@ -140,13 +140,13 @@ export default function Home() {
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   <TypeAnimation
                     sequence={[
-                      "Vidumini",
+                      "Pamalka",
                       2000,
-                      "Vidumini Chandrasekara",
+                      "Pamalka Nethmani",
                       3000,
                       "A Developer",
                       2000,
-                      "A QA Engineer",
+                      "A IT Suppoter",
                       2000,
                     ]}
                     wrapper="span"
@@ -161,7 +161,7 @@ export default function Home() {
                   sequence={[
                     "Full Stack Developer",
                     3000,
-                    "Quality Assurance Engineer",
+                    "IT Suppoter",
                     3000,
                     "MERN Stack Specialist",
                     3000,
@@ -175,14 +175,14 @@ export default function Home() {
               </div>
 
               <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mb-8 leading-relaxed">
-                Passionate about building scalable web applications and ensuring
-                flawless user experiences through comprehensive quality
-                assurance.
+                Passionate about creating reliable IT solutions, delivering
+                user-friendly systems, and supporting seamless digital
+                experiences through effective development and support practices.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <motion.a
-                  href="/Vidumini_Chandrasekara_CV.pdf"
+                  href="/PamalkaResumeSE.pdf"
                   download
                   className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
                   whileHover={{ scale: 1.05 }}
@@ -192,17 +192,19 @@ export default function Home() {
                   Download CV
                 </motion.a>
 
-                <motion.button
-                  className="border-2 border-blue-400 hover:bg-blue-400 hover:text-gray-900 text-blue-400 font-semibold py-4 px-8 rounded-full transition-all duration-300 flex items-center justify-center gap-3"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <MdEmail />
-                  Get In Touch
-                </motion.button>
+                <a href="mailto:nethmanipamalka@gmail.com">
+                  <motion.button
+                    className="border-2 border-blue-400 hover:bg-blue-400 hover:text-gray-900 text-blue-400 font-semibold py-4 px-8 rounded-full transition-all duration-300 flex items-center justify-center gap-3"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <MdEmail />
+                    Get In Touch
+                  </motion.button>
+                </a>
               </div>
 
-              <div className="flex justify-center lg:justify-start gap-6">
+              {/* <div className="flex justify-center lg:justify-start gap-6">
                 <motion.a
                   href="https://linkedin.com"
                   target="_blank"
@@ -219,7 +221,7 @@ export default function Home() {
                 >
                   <FaGithub size={20} />
                 </motion.a>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </div>
@@ -280,10 +282,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: "2+", label: "Years Experience" },
-              { number: "15+", label: "Projects Completed" },
+              { number: "1+", label: "Years Experience" },
+              { number: "25+", label: "Projects Completed" },
               { number: "10+", label: "Technologies" },
-              { number: "100%", label: "Commitment" },
+              { number: "97%", label: "Commitment" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
