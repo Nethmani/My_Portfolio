@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -22,10 +23,15 @@ import {
   SiSelenium,
   SiSonarqube,
 } from "react-icons/si";
-import { MdEmail, MdPhone } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 
 export default function Home() {
-  // Tech stack icons for floating animation
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const techStack = [
     { icon: SiReact, color: "#61DAFB", name: "React" },
     { icon: SiNodedotjs, color: "#339933", name: "Node.js" },
@@ -35,7 +41,6 @@ export default function Home() {
     { icon: SiSonarqube, color: "#4E9BCD", name: "SonarQube" },
   ];
 
-  // Professional highlights
   const highlights = [
     {
       icon: FaCode,
@@ -58,43 +63,43 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white overflow-x-hidden">
       <NavBar />
 
-      {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative pt-20">
-        {/* Animated background elements */}
+        {/* Background Blur Effects */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        {/* Floating tech icons */}
-        {techStack.map((tech, index) => (
-          <motion.div
-            key={tech.name}
-            className="absolute opacity-20 pointer-events-none"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              rotate: 0,
-            }}
-            animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              rotate: 360,
-            }}
-            transition={{
-              duration: 20 + index * 2,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "linear",
-            }}
-          >
-            <tech.icon size={40} color={tech.color} />
-          </motion.div>
-        ))}
+        {/* ✅ Only render floating tech icons on client */}
+        {mounted &&
+          techStack.map((tech, index) => (
+            <motion.div
+              key={tech.name}
+              className="absolute opacity-20 pointer-events-none"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                rotate: 0,
+              }}
+              animate={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                rotate: 360,
+              }}
+              transition={{
+                duration: 20 + index * 2,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "linear",
+              }}
+            >
+              <tech.icon size={40} color={tech.color} />
+            </motion.div>
+          ))}
 
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 px-6 relative z-10">
-          {/* Profile Image with enhanced styling */}
+          {/* Profile Image */}
           <motion.div
             className="relative group"
             initial={{ scale: 0, opacity: 0, rotate: -180 }}
@@ -102,27 +107,18 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <div className="w-80 h-80 relative">
-              {/* Outer glow ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 p-1 animate-spin-slow">
                 <div className="w-full h-full rounded-full bg-slate-900"></div>
               </div>
-
-              {/* Profile image */}
               <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm">
                 <Image
                   src="/images/profile.png"
                   width={304}
                   height={304}
-                  alt="Vidumini Chandrasekara - Full Stack Developer"
+                  alt="Vidumini Chandrasekara"
                   className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => {
-                    e.target.src =
-                      "https://via.placeholder.com/304x304/1e293b/3b82f6?text=VC";
-                  }}
                 />
               </div>
-
-              {/* Floating particles */}
               <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-400 rounded-full animate-bounce"></div>
               <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-500"></div>
               <div className="absolute top-1/2 -left-4 w-2 h-2 bg-cyan-400 rounded-full animate-ping"></div>
@@ -136,11 +132,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <div className="mb-4">
-                <span className="text-blue-400 text-lg font-medium">
-                  Hello, I'm
-                </span>
-              </div>
+              <span className="text-blue-400 text-lg font-medium">
+                Hello, I'm
+              </span>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
@@ -183,11 +177,9 @@ export default function Home() {
               <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mb-8 leading-relaxed">
                 Passionate about building scalable web applications and ensuring
                 flawless user experiences through comprehensive quality
-                assurance. I transform ideas into digital reality with clean
-                code and innovative solutions.
+                assurance.
               </p>
 
-              {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <motion.a
                   href="/Vidumini_Chandrasekara_CV.pdf"
@@ -210,23 +202,19 @@ export default function Home() {
                 </motion.button>
               </div>
 
-              {/* Social Links */}
               <div className="flex justify-center lg:justify-start gap-6">
                 <motion.a
                   href="https://linkedin.com"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-white transition-all duration-300 border border-white/20"
+                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-white border border-white/20"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
                   <FaLinkedin size={20} />
                 </motion.a>
-
                 <motion.a
                   href="https://github.com"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-700 hover:text-white transition-all duration-300 border border-white/20"
+                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-700 hover:text-white border border-white/20"
                   whileHover={{ scale: 1.1, rotate: -5 }}
                 >
                   <FaGithub size={20} />
@@ -236,7 +224,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
@@ -246,7 +233,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Professional Highlights Section */}
+      {/* Highlights */}
       <section className="py-20 relative">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -288,7 +275,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Stats Section */}
+      {/* Stats Section */}
       <section className="py-16 bg-white/5 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
