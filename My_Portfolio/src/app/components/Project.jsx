@@ -84,89 +84,99 @@ export default function Project() {
     
     // Project descriptions and details
     const projectDetails = {
-      'ITPM-Project': {
-        image: '/images/repos/ITPM-Project.jpg',
-        description: 'GalaxyX Cinema is a MERN stack-based movie theater management system featuring movie management, booking management, food ordering, and a movie buddy system for enhanced customer engagement.',
-        displayName: 'GalaxyX Cinema'
+      "ITPM-Project": {
+        image: "/images/repos/ITPM-Project.jpg",
+        description:
+          "GalaxyX Cinema is a MERN stack-based movie theater management system featuring movie management, booking management, food ordering, and a movie buddy system for enhanced customer engagement.",
+        displayName: "GalaxyX Cinema",
       },
-      'Luxury-Villa': {
-        image: '/images/repos/WanderVibe.png',
-        description: 'WanderVibe is a full-stack web application built for a Sri Lankan travel agency, showcasing their services, destinations, and allowing customers to make inquiries.',
-        displayName: 'WanderVibe',
+      PAF_Prj: {
+        image: "/images/repos/WanderVibe.png",
+        description:
+          "WanderVibe is a full-stack web application built for a Sri Lankan travel agency, showcasing their services, destinations, and allowing customers to make inquiries.",
+        displayName: "WanderVibe",
         // homepage: 'https://wander-vibe-app.vercel.app/'
       },
-      'Luxury-Villa': {
-        image: '/images/repos/Luxury-Villa.png',
-        description: 'A movie discovery platform with search, recommendations, watchlist management, and real-time data from the TMDb API.',
-        displayName: 'Luxury-Villa'
+      "Food-Delivery-Website": {
+        image: "/images/repos/Luxury-Villa.png",
+        description:
+          "A movie discovery platform with search, recommendations, watchlist management, and real-time data from the TMDb API.",
+        displayName: "Luxury-Villa",
       },
-      'CodeMaster': {
-        image: '/images/repos/CodeMaster.png',
-        description: "CodeMaster is a social platform for developers to create, share, and engage with code snippets. More than a snippet manager, it's a vibrant community for collaboration, feedback, and growth—like Facebook for coders.",
-        displayName: 'Code Master'
+      CodeMaster: {
+        image: "/images/repos/CodeMaster.png",
+        description:
+          "CodeMaster is a social platform for developers to create, share, and engage with code snippets. More than a snippet manager, it's a vibrant community for collaboration, feedback, and growth—like Facebook for coders.",
+        displayName: "Code Master",
       },
-      'Interactix' : {
-        image: '/images/repos/Interactix.jpg',
-        description: "Redesigning the Vijitha Yapa Bookstore website, Sri Lanka's renowned literary retailer, to enhance user experience and better reflect its prestigious reputation.",
-        displayName: 'Figma Design Prototype',
-        homepage: 'https://www.figma.com/proto/sr4R4amCijnjvOcUfrX2RB/Interactix?node-id=137-161&node-type=canvas&t=uCjn7u7biQX25GwF-1&scaling=scale-down-width&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=137%3A161'
+      Interactix: {
+        image: "/images/repos/Interactix.jpg",
+        description:
+          "Redesigning the Vijitha Yapa Bookstore website, Sri Lanka's renowned literary retailer, to enhance user experience and better reflect its prestigious reputation.",
+        displayName: "Figma Design Prototype",
+        homepage:
+          "https://www.figma.com/proto/sr4R4amCijnjvOcUfrX2RB/Interactix?node-id=137-161&node-type=canvas&t=uCjn7u7biQX25GwF-1&scaling=scale-down-width&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=137%3A161",
       },
-      'course-registration-application': {
-        image: '/images/repos/course-registration-application.png',
-        description: 'This project is a web-based student registration application that allows students to register, provide their details, and enroll in multiple study courses',
-        displayName: 'Course Registration Application'
+      "course-registration-application": {
+        image: "/images/repos/course-registration-application.png",
+        description:
+          "This project is a web-based student registration application that allows students to register, provide their details, and enroll in multiple study courses",
+        displayName: "Course Registration Application",
       },
-      'E-commerce': {
-        image: '/images/repos/commerce.png',
-        description: 'A modern E-commerce web application featuring product browsing, shopping cart, secure checkout, and order management. Built with a scalable architecture and a focus on user experience.',
-        displayName: 'E-commerce Web Application'
+      "Livewire-Laravel-ToDo-App ": {
+        image: "/images/repos/commerce.png",
+        description:
+          "A modern E-commerce web application featuring product browsing, shopping cart, secure checkout, and order management. Built with a scalable architecture and a focus on user experience.",
+        displayName: "E-commerce Web Application",
       },
-      'BookReview': {
-        image: '/images/repos/BookReview.jpg',
-        description: 'This Book Review Application allows users to view, add, edit, and delete book reviews. Each review includes the book title, author, rating (in stars), and a detailed review text. The reviews are stored in a backend database and are displayed dynamically on the frontend.',
-        displayName: 'Book Review Web'
+      BookReview: {
+        image: "/images/repos/BookReview.jpg",
+        description:
+          "This Book Review Application allows users to view, add, edit, and delete book reviews. Each review includes the book title, author, rating (in stars), and a detailed review text. The reviews are stored in a backend database and are displayed dynamically on the frontend.",
+        displayName: "Book Review Web",
       },
-      'ITP-EasyRent': {
-        image: '/images/repos/ITP-EasyRent.jpg',
-        description: 'The Tourism Management System in Sri Lanka enhances the travel experience for local and foreign tourists by providing a centralized platform for accessing travel information. It helps streamline trip planning with details on attractions, transport, accommodations, and events. The system promotes safe, convenient, and sustainable tourism across the island.',
-        displayName: 'Vehicle Rental System',
+      "ITP-EasyRent": {
+        image: "/images/repos/ITP-EasyRent.jpg",
+        description:
+          "The Tourism Management System in Sri Lanka enhances the travel experience for local and foreign tourists by providing a centralized platform for accessing travel information. It helps streamline trip planning with details on attractions, transport, accommodations, and events. The system promotes safe, convenient, and sustainable tourism across the island.",
+        displayName: "Vehicle Rental System",
       },
-      'Shopping_Cart': {
-        image: '/images/repos/Shopping_Cart.jpg',
-        description: 'A fully responsive To-Do List application built using the MERN (MongoDB, Express, React, Node.js) stack. This application enables users to manage their tasks effectively with features like adding, editing, deleting, and marking tasks as complete/incomplete.',
-        displayName: 'Shopping Cart',
-        techStack: [
-          'HTML5',
-          'CSS3',
-          'JavaScript',
-          'PHP'
-         ]
+      Shopping_Cart: {
+        image: "/images/repos/Shopping_Cart.jpg",
+        description:
+          "A fully responsive To-Do List application built using the MERN (MongoDB, Express, React, Node.js) stack. This application enables users to manage their tasks effectively with features like adding, editing, deleting, and marking tasks as complete/incomplete.",
+        displayName: "Shopping Cart",
+        techStack: ["HTML5", "CSS3", "JavaScript", "PHP"],
       },
-      'notesApp': {
-        image: '/images/repos/notesApp.png',
-        description: 'A simple and responsive To-Do List app built with HTML, CSS, and JavaScript. This project demonstrates basic front-end development skills and provides optional task persistence using local storage.',
-        displayName: 'Mobile Notes App',
-        homepage: 'https://to-do-list-eight-coral-95.vercel.app/'
+      notesApp: {
+        image: "/images/repos/notesApp.png",
+        description:
+          "A simple and responsive To-Do List app built with HTML, CSS, and JavaScript. This project demonstrates basic front-end development skills and provides optional task persistence using local storage.",
+        displayName: "Mobile Notes App",
+        homepage: "https://to-do-list-eight-coral-95.vercel.app/",
       },
       // 'BookReview': {
       //   image: '/images/repos/BookReview.jpg',
       //   description: 'This project implements a simple monitoring system to track server performance metrics such as CPU usage, memory usage, and disk space. It triggers email alerts when usage exceeds predefined thresholds and logs metrics for analysis.',
       //   displayName: 'Book Review System',
       // },
-      'PHP-Login-System' : {
-       image: '/images/repos/PHP-Login-System.jpg',
-        description: 'This ERP system is a web application built with PHP and MySQL to manage business operations. It includes features for customer management, inventory control, and reporting, showcasing CRUD operations and report generation.',
-        displayName: 'PHP Login System ',
+      "PHP-Login-System": {
+        image: "/images/repos/PHP-Login-System.jpg",
+        description:
+          "This ERP system is a web application built with PHP and MySQL to manage business operations. It includes features for customer management, inventory control, and reporting, showcasing CRUD operations and report generation.",
+        displayName: "PHP Login System ",
       },
-      'Login-System' : {
-        image: '/images/repos/Login-System.jpg',
-        description: 'The app, built with Kotlin and SQLite, helps plan academic activities by managing study plans through full CRUD operations.',
-        displayName: 'Java Login System',
+      "Login-System": {
+        image: "/images/repos/Login-System.jpg",
+        description:
+          "The app, built with Kotlin and SQLite, helps plan academic activities by managing study plans through full CRUD operations.",
+        displayName: "Java Login System",
       },
-      'Android-Studio-SimpleCarGame' : {
-       image: '/images/repos/Android-Studio-SimpleCarGame.png',
-        description: 'A simple car game developed using Kotlin for the Mobile App Development module. The red-colored formula car must survive without crashing into the yellow-colored cars, and the user can gain scores. The high score is displayed',
-        displayName: 'Simple Car Game',
+      "Android-Studio-SimpleCarGame": {
+        image: "/images/repos/Android-Studio-SimpleCarGame.png",
+        description:
+          "A simple car game developed using Kotlin for the Mobile App Development module. The red-colored formula car must survive without crashing into the yellow-colored cars, and the user can gain scores. The high score is displayed",
+        displayName: "Simple Car Game",
       },
       // 'Android-Studio-SimpleFoodApp' : {
       //   image: '/images/repos/Android-Studio-SimpleFoodApp.png',
@@ -196,8 +206,6 @@ export default function Project() {
       //     'OOP Concepts'
       //   ]
       // },
-      
-      
     };
     
     const project = projectDetails[repo.name] || {

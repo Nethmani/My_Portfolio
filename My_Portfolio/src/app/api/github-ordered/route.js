@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     // GitHub username
-    const username = 'Vidumini16';
+    const username = 'Nethmani';
     
     // Get GitHub token from environment variable
     const githubToken = process.env.GITHUB_TOKEN;
@@ -93,7 +93,7 @@ export async function GET() {
     
     // Filter out repositories we don't want to show
     const filteredRepos = repos.filter(repo => 
-      repo.name !== 'Vidumini16' && 
+      repo.name !== 'Nethmani' && 
       repo.name !== 'My_Portfolio' &&
       repo.name !== 'GymSystem' &&
       repo.name !== 'ant-design' 
