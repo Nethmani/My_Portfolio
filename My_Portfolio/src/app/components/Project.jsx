@@ -127,14 +127,14 @@ export default function Project() {
     // Project descriptions and details
     const projectDetails = {
       PAF_Prj: {
-        image: "/images/repos/paf.png",
+        image: "/images/repos/paf1.png",
         description:
           "The Skill-Sharing & Learning Platform is a full-stack social media web application designed to foster a collaborative learning community where users can share and acquire skills in diverse areas such as coding, cooking, photography, and DIY crafts. Built using Spring Boot (backend) and React.js (frontend), the platform allows users to create personal profiles, share skill updates through posts, engage with others via likes and comments, join interest-based groups, and communicate through real-time chat. It also supports goal-setting, skill progression tracking, and certification upon course completion, promoting both personal development and community-driven learning.",
         displayName: "Skill-Sharing & Learning Platform",
         // homepage: 'https://wander-vibe-app.vercel.app/'
       },
       "ITPM-Project": {
-        image: "/images/repos/itpm.png",
+        image: "/images/repos/itpm1.png",
         description:
           "DineMate is a full-stack Restaurant Management System developed using the MERN stack, designed to streamline operations for restaurant owners, managers, and customers. The system features secure role-based access (Admin, Manager, User) and includes modules for restaurant and food menu management, order processing, reservation handling, and payment tracking. It supports real-time food availability updates, search and visibility control, and generates detailed reports in CSV/PDF formats. Enhanced with Firebase for image storage (including 360° virtual shop views) and an AI-powered chatbot for customer support, DineMate delivers a responsive, user-friendly experience tailored to modern restaurant needs.",
         displayName: "DineMate Restaurant Management System",
