@@ -14,7 +14,7 @@ export default function ProjectsPage() {
 
       {/* Page Header */}
       <motion.div
-        className="text-center mt-16 mb-16" 
+        className="text-center mt-16 mb-16"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -47,8 +47,8 @@ export default function ProjectsPage() {
 
         {/* Subtitle */}
         <p className="text-xl text-gray-300 mt-6 max-w-3xl mx-auto leading-relaxed">
-          My academic journey and continuous learning path that shaped my
-          expertise in technology and innovation
+          Driven by curiosity and learning, my academic projects reflect my
+          growth in technology and problem-solving.
         </p>
       </motion.div>
 

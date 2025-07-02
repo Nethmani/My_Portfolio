@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
+  SiAndroid,
   SiExpress,
   SiMongodb,
   SiTailwindcss,
@@ -23,6 +24,13 @@ import {
   SiMysql,
   SiJsonwebtokens,
   SiStripe,
+  SiLaravel,
+  SiLivewire,
+  SiNextdotjs,
+  SiTypescript,
+  SiJsp,
+  SiFlutter,
+  SiDart,
 } from "react-icons/si";
 
 import {
@@ -33,7 +41,11 @@ import {
   FaDatabase,
   FaJava,
   FaServer,
+  FaHtml5,
+  FaCss3Alt,
+  
 } from "react-icons/fa";
+import { FaFileCode, FaPalette } from "react-icons/fa6";
 
 
 export default function Project() {
@@ -142,19 +154,22 @@ export default function Project() {
       // },
       "Black-Cat-AI-Figma-Design": {
         image: "/images/repos/cat.png",
-        description: "....",
+        description:
+          "Black-Cat-AI Figma Design is a modern and intuitive UI/UX prototype created to visualize the interface of an AI-powered chatbot application. The design emphasizes clean structure, accessibility, and Material UI principles such as responsive grids, consistent typography, and component reusability. It includes thoughtful layouts for chat interactions, user onboarding, and settings, tailored to deliver a smooth and intelligent conversational experience. The design is developer-ready, aligning with Material Design standards for seamless implementation.",
         homepage:
-          "https://www.figma.com/proto/sr4R4amCijnjvOcUfrX2RB/Interactix?node-id=137-161&node-type=canvas&t=uCjn7u7biQX25GwF-1&scaling=scale-down-width&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=137%3A161",
+          "https://www.figma.com/proto/TJx6cQQYnidcZsBZKpdM5n/Interview?node-id=15-3968&t=5mXzAseWWwa1rBEC-1",
       },
       "All-The-Figma-Designs": {
         image: "/images/repos/figma.png",
-        description: "....",
+        description:
+          "All-The-Figma-Designs is a curated collection of modern and responsive UI/UX layouts crafted using Figma, showcasing design versatility across web and mobile platforms. The project includes dashboards, landing pages, forms, e-commerce flows, and mobile app screens with a strong emphasis on user-centered design, accessibility, and clean visual hierarchy. Each design reflects attention to detail, component reusability, and consistency, making it suitable for real-world application development or handoff to developers.",
         homepage:
-          "https://www.figma.com/proto/sr4R4amCijnjvOcUfrX2RB/Interactix?node-id=137-161&node-type=canvas&t=uCjn7u7biQX25GwF-1&scaling=scale-down-width&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=137%3A161",
+          "https://www.figma.com/design/TJx6cQQYnidcZsBZKpdM5n/Interview?node-id=0-1&t=5mXzAseWWwa1rBEC-1",
       },
       "Livewire-Laravel-ToDo-App": {
         image: "/images/repos/todo.png",
-        description: ".....",
+        description:
+          "This Task Management Application provides an interactive and seamless experience for managing to-do tasks in real time. It supports inline task editing, live updates without page reloads, efficient filtering, and robust form validation. The user interface is designed for clarity and responsiveness, with features like pagination, dynamic status updates, and interactive notifications to enhance usability. The system ensures smooth task organization and error handling, delivering a polished and productive task management environment.",
         displayName: "Livewire Laravel To-Do App",
       },
       Tasty_food_app_Flutter: {
@@ -170,7 +185,8 @@ export default function Project() {
       // },
       "Car-Showcase-App": {
         image: "/images/repos/car.png",
-        description: "...........",
+        description:
+          "This Modern Car Showcase Web Application offers a sleek and responsive user interface for browsing dynamic car listings. It features interactive search filters for make, model, year, and price, providing users with a personalized and intuitive browsing experience. The application is optimized for performance using advanced rendering techniques and includes scalable backend functionality to ensure efficient data handling and future extensibility. The overall design focuses on delivering both visual appeal and seamless interactivity.",
         displayName: "Car Showcase App",
       },
       // Shopping_Cart: {
@@ -199,27 +215,32 @@ export default function Project() {
       //},
       Black_Cat_AI_Chatbot: {
         image: "/images/repos/cat1.png",
-        description: "........",
+        description:
+          "Black Cat AI is an interactive chatbot designed to solve mathematical problems and engage users through natural language queries. The application leverages advanced natural language processing (NLP) techniques to interpret user input, perform accurate mathematical computations, and deliver responses in a conversational manner. With a modern and responsive interface, it offers an intuitive experience for students and learners seeking real-time math assistance.",
         displayName: "Black Cat AI Chatbot",
       },
       "Fresh4You-Shop-Managment-System": {
         image: "/images/repos/fruit.png",
-        description: ".......",
+        description:
+          "Fresh4You is a complete Shop Management System designed to streamline daily operations of a retail store with features like product inventory management, billing, customer tracking, and sales reporting. The system allows shop owners and staff to efficiently handle stock updates, monitor low inventory alerts, generate professional invoices, and track customer purchases. With role-based access, real-time transaction handling, and a user-friendly interface, Fresh4You delivers a reliable and scalable solution for small to medium-sized retail businesses.",
         displayName: "Fresh4You Shop Management System",
       },
       "Online-School-Information-Management-System": {
         image: "/images/repos/scl.png",
-        description: "........",
+        description:
+          "This School Management System is a full-featured web-based application designed to streamline core administrative and user tasks within an educational environment. It supports account management functionalities such as creation, updates, and deletion for users, along with estate listing features for managing school properties, including adding, editing, and removing listings. Built using Java Servlets and MySQL on the backend with a responsive frontend powered by JSP, HTML, Bootstrap, and JavaScript, the system ensures structured data exchange through XML, providing a reliable and scalable solution for digital school operations.",
         displayName: "Online School Information Management System",
       },
       "MAD-PROJECT---Car-Race-Game": {
         image: "/images/repos/race.png",
-        description: ".....",
+        description:
+          "Car Race Game is an engaging mobile racing game developed using Kotlin in Android Studio. Designed for an interactive and fast-paced experience, the game features intuitive touch controls, responsive UI, smooth animations, and increasing difficulty levels to keep players challenged. It demonstrates strong understanding of Android app development, game loops, event handling, and performance optimization for mobile devices.",
         displayName: "Car Race Game",
       },
       "MAD-PROJECT---Diary-App": {
         image: "/images/repos/diary.png",
-        description: ".......",
+        description:
+          "This Diary App is a personal journal application developed using Kotlin in Android Studio, enabling users to create, edit, and delete daily entries with a smooth and intuitive interface. The app integrates a local SQLite database (or Room DB) to persist user data securely on the device, ensuring entries are saved even after app closure. It showcases strong skills in Android architecture components, local data storage, UI design, and activity/fragment lifecycle management, providing users with a private and reliable journaling experience.",
         displayName: "Diary App",
       },
       // 'Android-Studio-SimpleFoodApp' : {
@@ -504,6 +525,14 @@ export default function Project() {
                                             <span>MySQL</span>
                                           </div>
                                           <div className="flex items-center">
+                                            <SiFirebase className="text-[#FFCA28] text-xl mr-2" />
+                                            <span>Firebase Storage</span>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <SiPostman className="text-[#FF6C37] text-xl mr-2" />
+                                            <span>Postman</span>
+                                          </div>
+                                          <div className="flex items-center">
                                             <SiTailwindcss className="text-[#06B6D4] text-xl mr-2" />
                                             <span>Tailwind CSS</span>
                                           </div>
@@ -566,113 +595,131 @@ export default function Project() {
                                         </div>
                                       </div>
                                     </>
-                                  ) : repo.name ===
-                                    "Livewire-Laravel-ToDo-App" ? (
+                                  ) : repo.name === "All-The-Figma-Designs" ? (
                                     <>
-                                      <p>......</p>
+                                      <p>
+                                        All-The-Figma-Designs is a curated
+                                        collection of modern and responsive
+                                        UI/UX layouts crafted using Figma,
+                                        showcasing design versatility across web
+                                        and mobile platforms. The project
+                                        includes dashboards, landing pages,
+                                        forms, e-commerce flows, and mobile app
+                                        screens with a strong emphasis on
+                                        user-centered design, accessibility, and
+                                        clean visual hierarchy. Each design
+                                        reflects attention to detail, component
+                                        reusability, and consistency, making it
+                                        suitable for real-world application
+                                        development or handoff to developers.
+                                      </p>
 
                                       <div className="mt-2">
-                                        <strong>Tech Stack:</strong>
+                                        <strong>Tools Used:</strong>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
                                           <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
-                                            </svg>
-                                            <span>HTML</span>
+                                            <SiFigma className="text-[#F24E1E] text-xl mr-2" />
+                                            <span>Figma</span>
                                           </div>
+                                          <div className="flex items-center">
+                                            <FaPalette className="text-[#A259FF] text-xl mr-2" />
+                                            <span>UI/UX Design</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </>
+                                  ) : repo.name ===
+                                    "Black-Cat-AI-Figma-Design" ? (
+                                    <>
+                                      <p>
+                                        Black-Cat-AI Figma Design is a modern
+                                        and intuitive UI/UX prototype created to
+                                        visualize the interface of an AI-powered
+                                        chatbot application. The design
+                                        emphasizes clean structure,
+                                        accessibility, and Material UI
+                                        principles such as responsive grids,
+                                        consistent typography, and component
+                                        reusability. It includes thoughtful
+                                        layouts for chat interactions, user
+                                        onboarding, and settings, tailored to
+                                        deliver a smooth and intelligent
+                                        conversational experience. The design is
+                                        developer-ready, aligning with Material
+                                        Design standards for seamless
+                                        implementation.
+                                      </p>
 
+                                      <div className="mt-2">
+                                        <strong>Tools Used:</strong>
+                                        <div className="grid grid-cols-2 gap-2 mt-2">
                                           <div className="flex items-center">
-                                            <SiPhp className="text-[#777BB4] text-xl mr-2" />
-                                            <span>PHP</span>
+                                            <SiFigma className="text-[#F24E1E] text-xl mr-2" />
+                                            <span>Figma</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <FaDatabase className="text-[#336791] text-xl mr-2" />
-                                            <span>MySQL</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
-                                            </svg>
-                                            <span>HTML</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.003-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
-                                            </svg>
-                                            <span>CSS</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiJavascript className="text-[#F7DF1E] text-xl mr-2" />
-                                            <span>JavaScript</span>
+                                            <SiMaterialdesign className="text-[#0081CB] text-xl mr-2" />
+                                            <span>Material UI</span>
                                           </div>
                                         </div>
                                       </div>
                                     </>
                                   ) : repo.name === "Tasty_food_app_Flutter" ? (
                                     <>
-                                      <p>....</p>
+                                      <p>
+                                        This Flutter Food App is a visually
+                                        engaging and intuitive mobile
+                                        application designed to showcase a
+                                        detailed description of a delicious
+                                        burger. The project demonstrates mastery
+                                        of core Flutter principles, including
+                                        reusable stateless widgets, flexible
+                                        layouts using Columns, Rows, and
+                                        Containers, and responsive UI design for
+                                        various device sizes. With clean styling
+                                        through TextStyle and well-structured
+                                        widget hierarchies, the app delivers a
+                                        smooth user experience using static
+                                        content and simple state management.
+                                        This project served as a hands-on
+                                        opportunity to strengthen my Flutter
+                                        development skills and reinforce clean,
+                                        efficient UI coding practices.
+                                      </p>
 
                                       <div className="mt-2">
                                         <strong>Tech Stack:</strong>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
                                           <div className="flex items-center">
-                                            <FaReact className="text-[#61DAFB] text-xl mr-2" />
-                                            <span>React.js</span>
+                                            <SiFlutter className="text-[#02569B] text-xl mr-2" />
+                                            <span>Flutter</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <FaNodeJs className="text-[#339933] text-xl mr-2" />
-                                            <span>Node.js</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiExpress className="text-white text-xl mr-2" />
-                                            <span>Express.js</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiMongodb className="text-[#47A248] text-xl mr-2" />
-                                            <span>MongoDB</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiTailwindcss className="text-[#06B6D4] text-xl mr-2" />
-                                            <span>Tailwind CSS</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiBootstrap className="text-[#7952B3] text-xl mr-2" />
-                                            <span>Bootstrap</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiReactrouter className="text-[#CA4245] text-xl mr-2" />
-                                            <span>React Router</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiJavascript className="text-[#F7DF1E] text-xl mr-2" />
-                                            <span>JavaScript</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiPostman className="text-[#FF6C37] text-xl mr-2" />
-                                            <span>Postman</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <FaServer className="text-[#FF6C37] text-xl mr-2" />
-                                            <span>REST API</span>
+                                            <SiDart className="text-[#0175C2] text-xl mr-2" />
+                                            <span>Dart</span>
                                           </div>
                                         </div>
                                       </div>
                                     </>
                                   ) : repo.name === "Car-Showcase-App" ? (
                                     <>
-                                      <p>.....</p>
+                                      <p>
+                                        This Modern Car Showcase Web Application
+                                        offers a sleek and responsive user
+                                        interface for browsing dynamic car
+                                        listings. It features interactive search
+                                        filters for make, model, year, and
+                                        price, providing users with a
+                                        personalized and intuitive browsing
+                                        experience. The application is optimized
+                                        for performance using advanced rendering
+                                        techniques and includes scalable backend
+                                        functionality to ensure efficient data
+                                        handling and future extensibility. The
+                                        overall design focuses on delivering
+                                        both visual appeal and seamless
+                                        interactivity.
+                                      </p>
 
                                       <div className="mt-2">
                                         <strong>Tech Stack:</strong>
@@ -680,89 +727,86 @@ export default function Project() {
                                           <div className="flex items-center">
                                             <FaReact className="text-[#61DAFB] text-xl mr-2" />
                                             <span>React.js</span>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <SiNextdotjs className="text-white text-xl mr-2" />
+                                            <span>Next.js</span>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <SiTypescript className="text-[#3178C6] text-xl mr-2" />
+                                            <span>TypeScript</span>
                                           </div>
                                           <div className="flex items-center">
                                             <SiTailwindcss className="text-[#06B6D4] text-xl mr-2" />
                                             <span>Tailwind CSS</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <SiBootstrap className="text-[#7952B3] text-xl mr-2" />
-                                            <span>Bootstrap</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <FaNodeJs className="text-[#339933] text-xl mr-2" />
-                                            <span>Node.js</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiExpress className="text-white text-xl mr-2" />
-                                            <span>Express.js</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiMongodb className="text-[#47A248] text-xl mr-2" />
-                                            <span>MongoDB</span>
-                                          </div>
-                                          <div className="flex items-center">
                                             <FaServer className="text-[#FF6C37] text-xl mr-2" />
-                                            <span>REST API</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiJavascript className="text-[#F7DF1E] text-xl mr-2" />
-                                            <span>JavaScript</span>
+                                            <span>Next.js API Routes</span>
                                           </div>
                                         </div>
                                       </div>
                                     </>
-                                  ) : repo.name === "E---Commerce-App" ? (
+                                  ) : repo.name ===
+                                    "Livewire-Laravel-ToDo-App" ? (
                                     <>
-                                      <p>.....</p>
+                                      <p>
+                                        This Task Management Application
+                                        provides an interactive and seamless
+                                        experience for managing to-do tasks in
+                                        real time. It supports inline task
+                                        editing, live updates without page
+                                        reloads, efficient filtering, and robust
+                                        form validation. The user interface is
+                                        designed for clarity and responsiveness,
+                                        with features like pagination, dynamic
+                                        status updates, and interactive
+                                        notifications to enhance usability. The
+                                        system ensures smooth task organization
+                                        and error handling, delivering a
+                                        polished and productive task management
+                                        environment.
+                                      </p>
 
                                       <div className="mt-2">
                                         <strong>Tech Stack:</strong>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
                                           <div className="flex items-center">
-                                            <FaReact className="text-[#61DAFB] text-xl mr-2" />
-                                            <span>React.js</span>
+                                            <SiLaravel className="text-[#FF2D20] text-xl mr-2" />
+                                            <span>Laravel</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <SiMongodb className="text-[#47A248] text-xl mr-2" />
-                                            <span>MongoDB</span>
+                                            <SiLivewire className="text-[#4E5D94] text-xl mr-2" />
+                                            <span>Livewire</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <FaNodeJs className="text-[#339933] text-xl mr-2" />
-                                            <span>Node.js</span>
+                                            <SiTailwindcss className="text-[#06B6D4] text-xl mr-2" />
+                                            <span>Tailwind CSS</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <SiExpress className="text-white text-xl mr-2" />
-                                            <span>Express.js</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiBootstrap className="text-[#7952B3] text-xl mr-2" />
-                                            <span>Bootstrap</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.003-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
-                                            </svg>
-                                            <span>CSS</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiPostman className="text-[#FF6C37] text-xl mr-2" />
-                                            <span>REST API</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiReactrouter className="text-[#CA4245] text-xl mr-2" />
-                                            <span>React Router</span>
+                                            <FaDatabase className="text-[#00618A] text-xl mr-2" />
+                                            <span>MySQL</span>
                                           </div>
                                         </div>
                                       </div>
                                     </>
                                   ) : repo.name === "Black_Cat_AI_Chatbot" ? (
                                     <>
-                                      <p>.....</p>
+                                      <p>
+                                        Black Cat AI is an interactive chatbot
+                                        designed to solve mathematical problems
+                                        and engage users through natural
+                                        language queries. The application
+                                        leverages advanced natural language
+                                        processing (NLP) techniques to interpret
+                                        user input, perform accurate
+                                        mathematical computations, and deliver
+                                        responses in a conversational manner.
+                                        With a modern and responsive interface,
+                                        it offers an intuitive experience for
+                                        students and learners seeking real-time
+                                        math assistance.
+                                      </p>
 
                                       <div className="mt-2">
                                         <strong>Tech Stack:</strong>
@@ -772,34 +816,8 @@ export default function Project() {
                                             <span>React.js</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <FaNodeJs className="text-[#339933] text-xl mr-2" />
-                                            <span>Node.js</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiExpress className="text-white text-xl mr-2" />
-                                            <span>Express.js</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiMongodb className="text-[#47A248] text-xl mr-2" />
-                                            <span>MongoDB</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiMongodb className="text-[#47A248] text-xl mr-2" />
-                                            <span>Mongoose</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiTailwindcss className="text-[#06B6D4] text-xl mr-2" />
-                                            <span>Tailwind CSS</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.31 4.917c3.97 0 7.182 3.196 7.182 7.13 0 3.933-3.212 7.13-7.182 7.13-3.97 0-7.182-3.197-7.182-7.13 0-3.934 3.212-7.13 7.182-7.13zm0 2.4c-2.64 0-4.782 2.13-4.782 4.73 0 2.6 2.142 4.73 4.782 4.73 2.64 0 4.782-2.13 4.782-4.73 0-2.6-2.142-4.73-4.782-4.73zm.09 1.44c.18 0 .33.15.33.33v1.44h1.44c.18 0 .33.15.33.33 0 .18-.15.33-.33.33h-1.44v1.44c0 .18-.15.33-.33.33-.18 0-.33-.15-.33-.33v-1.44h-1.44c-.18 0-.33-.15-.33-.33 0-.18.15-.33.33-.33h1.44v-1.44c0-.18.15-.33.33-.33z" />
-                                            </svg>
-                                            <span>Axios</span>
+                                            <SiMaterialdesign className="text-[#0081CB] text-xl mr-2" />
+                                            <span>Material UI</span>
                                           </div>
                                         </div>
                                       </div>
@@ -807,7 +825,24 @@ export default function Project() {
                                   ) : repo.name ===
                                     "Fresh4You-Shop-Managment-System" ? (
                                     <>
-                                      <p>.....</p>
+                                      <p>
+                                        Fresh4You is a complete Shop Management
+                                        System designed to streamline daily
+                                        operations of a retail store with
+                                        features like product inventory
+                                        management, billing, customer tracking,
+                                        and sales reporting. The system allows
+                                        shop owners and staff to efficiently
+                                        handle stock updates, monitor low
+                                        inventory alerts, generate professional
+                                        invoices, and track customer purchases.
+                                        With role-based access, real-time
+                                        transaction handling, and a
+                                        user-friendly interface, Fresh4You
+                                        delivers a reliable and scalable
+                                        solution for small to medium-sized
+                                        retail businesses.
+                                      </p>
 
                                       <div className="mt-2">
                                         <strong>Tech Stack:</strong>
@@ -837,8 +872,8 @@ export default function Project() {
                                             <span>JavaScript</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <FaDatabase className="text-[#336791] text-xl mr-2" />
-                                            <span>Local Storage</span>
+                                            <SiMongodb className="text-[#47A248] text-xl mr-2" />
+                                            <span>MongoDB</span>
                                           </div>
                                         </div>
                                       </div>
@@ -846,58 +881,60 @@ export default function Project() {
                                   ) : repo.name ===
                                     "Online-School-Information-Management-System" ? (
                                     <>
-                                      <p>.....</p>
+                                      <p>
+                                        This School Management System is a
+                                        full-featured web-based application
+                                        designed to streamline core
+                                        administrative and user tasks within an
+                                        educational environment. It supports
+                                        account management functionalities such
+                                        as creation, updates, and deletion for
+                                        users, along with estate listing
+                                        features for managing school properties,
+                                        including adding, editing, and removing
+                                        listings. Built using Java Servlets and
+                                        MySQL on the backend with a responsive
+                                        frontend powered by JSP, HTML,
+                                        Bootstrap, and JavaScript, the system
+                                        ensures structured data exchange through
+                                        XML, providing a reliable and scalable
+                                        solution for digital school operations.
+                                      </p>
 
                                       <div className="mt-2">
                                         <strong>Tech Stack:</strong>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
                                           <div className="flex items-center">
-                                            <SiFigma className="text-[#F24E1E] text-xl mr-2" />
-                                            <span>Figma</span>
+                                            <FaHtml5 className="text-[#E34F26] text-xl mr-2" />
+                                            <span>HTML</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <SiMaterialdesign className="text-[#757575] text-xl mr-2" />
-                                            <span>Material Design</span>
+                                            <FaCss3Alt className="text-[#1572B6] text-xl mr-2" />
+                                            <span>CSS</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z" />
-                                            </svg>
-                                            <span>UI/UX Design</span>
+                                            <SiJavascript className="text-[#F7DF1E] text-xl mr-2" />
+                                            <span>JavaScript</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z" />
-                                            </svg>
-                                            <span>Prototyping</span>
+                                            <SiBootstrap className="text-[#7952B3] text-xl mr-2" />
+                                            <span>Bootstrap</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z" />
-                                            </svg>
-                                            <span>Wireframing</span>
+                                            <FaJava className="text-[#007396] text-xl mr-2" />
+                                            <span>Java (Servlets)</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="currentColor"
-                                            >
-                                              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z" />
-                                            </svg>
-                                            <span>User Research</span>
+                                            <FaDatabase className="text-[#00618A] text-xl mr-2" />
+                                            <span>MySQL</span>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <FaJava className="text-[#F44336] text-xl mr-2" />
+                                            <span>JSP</span>
+                                          </div>
+                                          <div className="flex items-center">
+                                            <FaFileCode className="text-[#FF6600] text-xl mr-2" />
+                                            <span>XML</span>
                                           </div>
                                         </div>
                                       </div>
@@ -905,39 +942,30 @@ export default function Project() {
                                   ) : repo.name ===
                                     "MAD-PROJECT---Car-Race-Game" ? (
                                     <>
-                                      <p>.....</p>
+                                      <p>
+                                        Car Race Game is an engaging mobile
+                                        racing game developed using Kotlin in
+                                        Android Studio. Designed for an
+                                        interactive and fast-paced experience,
+                                        the game features intuitive touch
+                                        controls, responsive UI, smooth
+                                        animations, and increasing difficulty
+                                        levels to keep players challenged. It
+                                        demonstrates strong understanding of
+                                        Android app development, game loops,
+                                        event handling, and performance
+                                        optimization for mobile devices.
+                                      </p>
                                       <div className="mt-2">
                                         <strong>Tech Stack:</strong>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
                                           <div className="flex items-center">
-                                            {/* HTML5 icon */}
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="#E44D26"
-                                            >
-                                              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm16.44 6.75l-.232 2.718-10.059-.003-.23 2.622 10.059.003-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
-                                            </svg>
-                                            <span>HTML5</span>
+                                            <SiKotlin className="text-[#7F52FF] text-xl mr-2" />
+                                            <span>Kotlin</span>
                                           </div>
                                           <div className="flex items-center">
-                                            {/* CSS3 icon */}
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="#1572B6"
-                                            >
-                                              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.003-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
-                                            </svg>
-                                            <span>CSS3</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiJavascript className="text-[#F7DF1E] text-xl mr-2" />
-                                            <span>JavaScript</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            <SiPhp className="text-[#777BB4] text-xl mr-2" />
-                                            <span>PHP</span>
+                                            <SiAndroid className="text-[#3DDC84] text-xl mr-2" />
+                                            <span>Android Studio</span>
                                           </div>
                                         </div>
                                       </div>
@@ -945,44 +973,37 @@ export default function Project() {
                                   ) : repo.name ===
                                     "MAD-PROJECT---Diary-App" ? (
                                     <>
-                                      <p>......</p>
+                                      <p>
+                                        This Diary App is a personal journal
+                                        application developed using Kotlin in
+                                        Android Studio, enabling users to
+                                        create, edit, and delete daily entries
+                                        with a smooth and intuitive interface.
+                                        The app integrates a local SQLite
+                                        database (or Room DB) to persist user
+                                        data securely on the device, ensuring
+                                        entries are saved even after app
+                                        closure. It showcases strong skills in
+                                        Android architecture components, local
+                                        data storage, UI design, and
+                                        activity/fragment lifecycle management,
+                                        providing users with a private and
+                                        reliable journaling experience.
+                                      </p>
                                       <div className="mt-2">
                                         <strong>Tech Stack:</strong>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
                                           <div className="flex items-center">
-                                            <SiPhp className="text-[#777BB4] text-xl mr-2" />
-                                            <span>PHP</span>
+                                            <SiKotlin className="text-[#7F52FF] text-xl mr-2" />
+                                            <span>Kotlin</span>
                                           </div>
                                           <div className="flex items-center">
-                                            <FaDatabase className="text-[#336791] text-xl mr-2" />
-                                            <span>MySQL</span>
+                                            <SiAndroid className="text-[#3DDC84] text-xl mr-2" />
+                                            <span>Android Studio</span>
                                           </div>
                                           <div className="flex items-center">
-                                            {/* HTML5 icon */}
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="#E44D26"
-                                            >
-                                              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm16.44 6.75l-.232 2.718-10.059-.003-.23 2.622 10.059.003-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
-                                            </svg>
-                                            <span>HTML5</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            {/* CSS3 icon */}
-                                            <svg
-                                              className="h-5 w-5 mr-2"
-                                              viewBox="0 0 24 24"
-                                              fill="#1572B6"
-                                            >
-                                              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.003-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
-                                            </svg>
-                                            <span>CSS3</span>
-                                          </div>
-                                          <div className="flex items-center">
-                                            {/* CRUD icon (simple database icon) */}
-                                            <FaDatabase className="text-[#4DB33D] text-xl mr-2" />
-                                            <span>CRUD Operations</span>
+                                            <FaDatabase className="text-[#00618A] text-xl mr-2" />
+                                            <span>SQLite / Room DB</span>
                                           </div>
                                         </div>
                                       </div>
