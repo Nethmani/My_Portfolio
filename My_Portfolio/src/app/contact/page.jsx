@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { FaPaperPlane } from "react-icons/fa";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import emailjs from "emailjs-com";
@@ -16,7 +18,6 @@ import {
   FaMapMarkerAlt,
   FaPhone,
   FaUser,
-  FaPaperPlane,
   FaCode,
   FaGraduationCap,
   FaProjectDiagram,
@@ -252,10 +253,23 @@ export default function Contact() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-cyan-900 text-white">
       <NavBar />
 
-      {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10"></div>
+
         <div className="relative max-w-6xl mx-auto px-4 text-center">
+          {/* Highlighted Tag */}
+          <motion.div
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-6 py-2 mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <FaPaperPlane className="text-blue-400" />
+            <span className="text-sm font-medium text-blue-300">
+              Contact Details
+            </span>
+          </motion.div>
+
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             Let's Connect
           </h1>
@@ -265,8 +279,6 @@ export default function Contact() {
           </p>
         </div>
       </section>
-
-
 
       {/* Main Content */}
       <section className="py-16">
@@ -282,7 +294,7 @@ export default function Contact() {
                   <div className="w-32 h-32 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-cyan-400 to-blue-500 p-1 mb-6 shadow-xl hover:shadow-cyan-500/25 transition-all duration-300">
                     <div className="w-full h-full rounded-full overflow-hidden bg-gray-700">
                       <Image
-                        src="/images/profile.png"
+                        src="/images/profile1.jpg"
                         width={128}
                         height={128}
                         alt="Pamalka Nethmani"

@@ -101,26 +101,26 @@ export async function GET() {
     
     // Define specific order for priority repositories
     const priorityOrder = [
+      "PAF_Prj",
       "ITPM-Project",
-      "Luxury-Villa",
-      "WanderVibe", 
-      "CodeMaster",
-      "Interactix",
-      "course-registration-application", 
-      "Book-Review-Web", 
-      "Project_ITP",
-      "To-Do-List-MERN-Stack",
-      "To-Do-List",
-      "server-monitoring-system",
-      "ERP-System",
-      "Academic-Day-Plan-App",
-      "Android-Studio-SimpleCarGame",
-      "Android-Studio-SimpleFoodApp",
-      "Online-Video-Browsing-System-LoginUI",
-      "Online-Bus-Booking-System",
-      "QR-Generator",
-      "Restaurant-Frontend-Demo",
-      "ui-practice"
+      "Food-Delivery-Website",
+      "Livewire-Laravel-ToDo-App",
+      "Tasty_foood_app_Flutter",
+      "Car-Showcase-App",
+      "E---Commerce-App",
+      "Black_Cat_AI_Chatbot",
+      "Fresh4You-Shop-Management-System",
+      "Online-School-Information-Management-System",
+      "MAD-PROJECT---Car-Race-Game",
+      "MAD-PROJECT---Diary-App",
+      "All-The-Figma-Designs",
+      "Black-Cat-AI-Figma-Design",
+      //"Android-Studio-SimpleFoodApp",
+      //"Online-Video-Browsing-System-LoginUI",
+      //"Online-Bus-Booking-System",
+      //"QR-Generator",
+      //"Restaurant-Frontend-Demo",
+      //"ui-practice"
     ];
     
     // Map the response to match your expected format

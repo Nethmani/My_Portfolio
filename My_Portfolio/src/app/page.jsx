@@ -112,7 +112,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm">
                 <Image
-                  src="/images/profile.png"
+                  src="/images/profile1.jpg"
                   width={304}
                   height={304}
                   alt="Vidumini Chandrasekara"

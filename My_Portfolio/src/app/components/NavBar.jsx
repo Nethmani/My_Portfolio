@@ -72,7 +72,7 @@ export default function NavBar() {
 
             {/* GitHub Link */}
             <a
-              href="https://github.com/16"
+              href="https://github.com/Nethmani"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-4 p-2 text-gray-400 hover:text-white transition-all duration-300 hover:bg-gray-800 rounded-full group"
@@ -153,7 +153,7 @@ export default function NavBar() {
           ))}
           <div className="pt-4 border-t border-gray-800">
             <a
-              href="https://github.com/16"
+              href="https://github.com/Nethmani"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-3 py-3 px-4 text-gray-300 hover:text-white transition-colors"
