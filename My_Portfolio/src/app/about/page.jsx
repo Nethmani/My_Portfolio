@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import Education from "../components/Education";
 // Import programming language icons
 import {
+  SiPostman,
+  SiNotion,
   SiJavascript,
   SiReact,
   SiNodedotjs,
@@ -152,6 +154,14 @@ export default function About() {
       category: "Testing",
     },
     {
+      name: "Postman",
+      icon: SiPostman,
+      color: "#FF6C37",
+      proficiency: 90,
+      category: "Testing",
+    },
+    
+    {
       name: "SonarQube",
       icon: SiSonarqube,
       color: "#F37020",
@@ -163,6 +173,13 @@ export default function About() {
       icon: SiTrello,
       color: "#0079BF",
       proficiency: 85,
+      category: "Tools",
+    },
+    {
+      name: "Notion",
+      icon: SiNotion,
+      color: "#000000",
+      proficiency: 80,
       category: "Tools",
     },
   ];

@@ -329,11 +329,11 @@ export default function Contact() {
                         href: "https://www.linkedin.com/in/pamalka-nethmani-a503b62a9/",
                         color: "hover:text-blue-400",
                       },
-                      {
-                        icon: FaFacebook,
-                        href: "https://www.facebook.com/share/1TQ3EuZrRY/?mibextid=LQQJ4d",
-                        color: "hover:text-blue-600",
-                      },
+  //                    {
+    //                    icon: FaFacebook,
+      //                  href: "https://www.facebook.com/share/1TQ3EuZrRY/?mibextid=LQQJ4d",
+        //                color: "hover:text-blue-600",
+          //            },
                       {
                         icon: FaWhatsapp,
                         href: "https://wa.me/94770587781",

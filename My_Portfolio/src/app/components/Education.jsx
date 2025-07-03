@@ -54,7 +54,7 @@ export default function Education() {
       highlights: [
         "Mathematics",
         "Physics",
-        "Chemistry",
+        "ICT",
         "Combined Mathematics",
       ],
       gradient: "from-green-500 to-teal-600",
