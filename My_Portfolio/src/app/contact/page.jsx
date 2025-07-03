@@ -191,9 +191,9 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    const serviceId = "service_qkck3gy";
-    const templateId = "template_ctfpvoh";
-    const publicKey = "_0yfdCDprJFHc4MeO";
+    const serviceId = "service_ibpjp62";
+    const templateId = "template_d1wwe3h";
+    const publicKey = "7I4P7U9hIAmsm_mZs";
 
     emailjs.init(publicKey);
 
