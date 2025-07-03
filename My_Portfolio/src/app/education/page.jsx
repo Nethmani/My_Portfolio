@@ -73,13 +73,13 @@ export default function EducationPage() {
               {
                 icon: FaGraduationCap,
                 label: "Degrees",
-                value: "2+",
+                value: "1+",
                 color: "from-blue-500 to-cyan-500",
               },
               {
                 icon: FaCertificate,
                 label: "Certifications",
-                value: "10+",
+                value: "20+",
                 color: "from-purple-500 to-pink-500",
               },
               {
