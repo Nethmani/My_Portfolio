@@ -3,7 +3,9 @@
 import { motion } from "framer-motion";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import PageCTA from "../components/PageCTA";
 import Education from "../components/Education";
+import { professionalHighlights } from "@/data/professionalData";
 // Import programming language icons
 import {
   SiPostman,
@@ -160,7 +162,7 @@ export default function About() {
       proficiency: 90,
       category: "Testing",
     },
-    
+
     {
       name: "SonarQube",
       icon: SiSonarqube,
@@ -569,7 +571,7 @@ export default function About() {
                       ))}
                     </div>
                   </motion.div>
-                )
+                ),
               )}
             </div>
           </motion.div>
@@ -632,6 +634,9 @@ export default function About() {
           </motion.div>
         </div>
       </section>
+
+      {/* Page CTA - Connect to next page */}
+      <PageCTA currentPage="about" />
 
       <Footer />
     </div>

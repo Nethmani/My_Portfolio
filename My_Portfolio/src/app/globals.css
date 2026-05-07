@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @tailwind base;
@@ -8,7 +8,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-family: 'Poppins', sans-serif;
+  --font-family: "Poppins", sans-serif;
 }
 
 @theme inline {
@@ -95,5 +95,62 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  nav,
+  footer {
+    display: none;
+  }
+
+  main {
+    padding: 0;
+    background: white;
+  }
+
+  .bg-slate-950,
+  .bg-gradient-to-br {
+    background: white !important;
+    background: none !important;
+  }
+
+  .text-slate-50,
+  .text-white {
+    color: black !important;
+  }
+
+  .border-white {
+    border-color: #ccc !important;
+  }
+
+  .bg-white\/5,
+  .bg-white\/10 {
+    background: #f5f5f5 !important;
+  }
+
+  .shadow-2xl,
+  .shadow-lg {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  motion section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .max-w-6xl {
+    max-width: 100%;
+  }
+
+  @page {
+    margin: 20mm;
+    size: A4;
   }
 }

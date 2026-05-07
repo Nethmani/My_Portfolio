@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HiAcademicCap } from "react-icons/hi"; 
+import { HiAcademicCap } from "react-icons/hi";
 import NavBar from "../components/NavBar";
 import Project from "../components/Project";
+import PageCTA from "../components/PageCTA";
 import Footer from "../components/Footer";
 
 export default function ProjectsPage() {
@@ -54,6 +55,9 @@ export default function ProjectsPage() {
 
       {/* Projects Content */}
       <Project />
+
+      {/* Page CTA - Connect to next page */}
+      <PageCTA currentPage="projects" />
 
       {/* Footer */}
       <Footer />

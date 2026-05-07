@@ -2,9 +2,16 @@
 
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { FaPaperPlane } from "react-icons/fa";
+import {
+  FaPaperPlane,
+  FaCheck,
+  FaClock,
+  FaRocket,
+  FaHandshake,
+} from "react-icons/fa";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import PageCTA from "../components/PageCTA";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
 import Image from "next/image";
@@ -29,21 +36,32 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
+    subject: "",
+    category: "general",
     message: "",
   });
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     phone: "",
+    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const maxMessageLength = 5000;
 
   const validateName = (name) => {
     if (!name.trim()) return "Name is required";
     if (name.length < 2) return "Name must be at least 2 characters";
     if (!/^[a-zA-Z\s]*$/.test(name))
       return "Name should only contain letters and spaces";
+    return "";
+  };
+
+  const validateSubject = (subject) => {
+    if (!subject.trim()) return "Subject is required";
+    if (subject.length < 5) return "Subject must be at least 5 characters";
+    if (subject.length > 100) return "Subject cannot exceed 100 characters";
     return "";
   };
 
@@ -71,6 +89,7 @@ export default function Contact() {
   const validateMessage = (message) => {
     if (!message.trim()) return "Message is required";
     if (message.length < 10) return "Message must be at least 10 characters";
+    if (message.length > 5000) return "Message cannot exceed 5000 characters";
     return "";
   };
 
@@ -92,6 +111,9 @@ export default function Contact() {
         break;
       case "phone":
         error = validatePhone(value);
+        break;
+      case "subject":
+        error = validateSubject(value);
         break;
       case "message":
         error = validateMessage(value);
@@ -153,7 +175,7 @@ export default function Contact() {
     const finalValue =
       atCount > 1
         ? sanitizedValue.replace(/@/g, (match, index) =>
-            index === sanitizedValue.indexOf("@") ? "@" : ""
+            index === sanitizedValue.indexOf("@") ? "@" : "",
           )
         : sanitizedValue;
 
@@ -176,6 +198,7 @@ export default function Contact() {
       name: validateName(formData.name),
       email: validateEmail(formData.email),
       phone: validatePhone(formData.phone),
+      subject: validateSubject(formData.subject),
       message: validateMessage(formData.message),
     };
 
@@ -201,6 +224,8 @@ export default function Contact() {
       from_name: formData.name,
       reply_to: formData.email,
       phone: formData.phone,
+      subject: formData.subject,
+      category: formData.category,
       message: formData.message,
     };
 
@@ -211,24 +236,36 @@ export default function Contact() {
         setIsSubmitting(false);
 
         Swal.fire({
-          title: "Message Sent Successfully!",
-          text: "Thank you for reaching out! I will get back to you within 24 hours.",
+          title: "Message Sent Successfully! 🎉",
+          html: `<div class="text-left">
+            <p class="mb-3">Thank you for reaching out! I've received your message.</p>
+            <p class="text-sm text-gray-600"><strong>What's next?</strong></p>
+            <ul class="text-sm text-gray-600 mt-2 space-y-1 list-disc list-inside">
+              <li>I'll review your message within 24 hours</li>
+              <li>You'll receive a response at <strong>${formData.email}</strong></li>
+              <li>For urgent matters, reach out via WhatsApp</li>
+            </ul>
+          </div>`,
           icon: "success",
           confirmButtonColor: "#06B6D4",
           background: "#1F2937",
           color: "#F9FAFB",
+          allowOutsideClick: false,
         });
 
         setFormData({
           name: "",
           email: "",
           phone: "",
+          subject: "",
+          category: "general",
           message: "",
         });
         setErrors({
           name: "",
           email: "",
           phone: "",
+          subject: "",
           message: "",
         });
       })
@@ -247,8 +284,6 @@ export default function Contact() {
       });
   };
 
-
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-cyan-900 text-white">
       <NavBar />
@@ -266,16 +301,17 @@ export default function Contact() {
           >
             <FaPaperPlane className="text-blue-400" />
             <span className="text-sm font-medium text-blue-300">
-              Contact Details
+              Let's Start a Conversation
             </span>
           </motion.div>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-            Let's Connect
+            Get In Touch
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Ready to collaborate on your next project? I'd love to hear from
-            you. Let's discuss how we can bring your ideas to life.
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            I'm always excited to collaborate on innovative projects and discuss
+            new opportunities. Whether you have a question or just want to say
+            hello, feel free to reach out!
           </p>
         </div>
       </section>
@@ -287,7 +323,10 @@ export default function Contact() {
             {/* Left Column - Profile & Contact Info */}
             <div className="lg:col-span-2 space-y-8">
               {/* Profile Card */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-700 relative overflow-hidden">
+              <motion.div
+                className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-700 relative overflow-hidden hover:border-cyan-500/50 transition-all duration-300"
+                whileHover={{ translateY: -5 }}
+              >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full -translate-y-16 translate-x-16"></div>
 
                 <div className="relative z-10 text-center">
@@ -310,7 +349,10 @@ export default function Contact() {
                   <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                     Pamalka Nethmani
                   </h3>
-                  <p className="text-gray-400 mb-6">Full Stack Developer</p>
+                  <p className="text-gray-400 mb-1">Full Stack Developer</p>
+                  <p className="text-cyan-400 text-sm font-medium mb-6">
+                    React • Node.js • Python • Cloud
+                  </p>
 
                   <div className="flex justify-center space-x-4">
                     {[
@@ -329,66 +371,127 @@ export default function Contact() {
                         href: "https://www.linkedin.com/in/pamalka-nethmani-a503b62a9/",
                         color: "hover:text-blue-400",
                       },
-  //                    {
-    //                    icon: FaFacebook,
-      //                  href: "https://www.facebook.com/share/1TQ3EuZrRY/?mibextid=LQQJ4d",
-        //                color: "hover:text-blue-600",
-          //            },
                       {
                         icon: FaWhatsapp,
                         href: "https://wa.me/94770587781",
                         color: "hover:text-green-400",
                       },
                     ].map((social, index) => (
-                      <a
+                      <motion.a
                         key={index}
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`text-2xl text-gray-400 ${social.color} transition-all duration-300 hover:scale-125`}
                         aria-label={social.icon.name}
+                        whileHover={{ scale: 1.3 }}
+                        whileTap={{ scale: 0.95 }}
                       >
                         <social.icon />
-                      </a>
+                      </motion.a>
                     ))}
                   </div>
+                </div>
+              </motion.div>
+
+              {/* Quick Contact Options */}
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-2xl border border-gray-700">
+                <h4 className="text-lg font-semibold mb-4 text-cyan-400 flex items-center">
+                  <FaRocket className="mr-3" />
+                  Quick Contact
+                </h4>
+                <div className="space-y-3">
+                  <a
+                    href="https://wa.me/94770587781?text=Hi%20Pamalka%20I%20would%20like%20to%20discuss"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3 bg-green-900/30 hover:bg-green-900/50 rounded-lg border border-green-700/50 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center">
+                      <FaWhatsapp className="text-green-400 mr-3" />
+                      <div>
+                        <p className="text-sm font-medium text-gray-300">
+                          WhatsApp
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          Instant response
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-green-400 text-xs font-semibold">
+                      Chat Now
+                    </span>
+                  </a>
+                  <a
+                    href="mailto:nethmanipamalka@gmail.com"
+                    className="flex items-center justify-between p-3 bg-cyan-900/30 hover:bg-cyan-900/50 rounded-lg border border-cyan-700/50 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center">
+                      <FaEnvelope className="text-cyan-400 mr-3" />
+                      <div>
+                        <p className="text-sm font-medium text-gray-300">
+                          Email
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          Usually &lt;2 hours
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-cyan-400 text-xs font-semibold">
+                      Send
+                    </span>
+                  </a>
                 </div>
               </div>
 
               {/* Contact Information */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-700">
+              <motion.div
+                className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-700 hover:border-cyan-500/50 transition-all duration-300"
+                whileHover={{ translateY: -5 }}
+              >
                 <h4 className="text-xl font-semibold mb-6 text-cyan-400 flex items-center">
                   <FaMapMarkerAlt className="mr-3" />
                   Contact Information
                 </h4>
 
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-lg">
+                  <div className="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-lg hover:bg-gray-700/50 transition-colors">
                     <FaEnvelope className="text-cyan-400 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-medium text-gray-300">Email</p>
                       <a
                         href="mailto:nethmanipamalka@gmail.com"
-                        className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                        className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm break-all"
                       >
                         nethmanipamalka@gmail.com
                       </a>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Response time: &lt;2 hours
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-lg">
+                  <div className="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-lg hover:bg-gray-700/50 transition-colors">
                     <FaPhone className="text-cyan-400 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-medium text-gray-300">Phone</p>
-                      <span className="text-gray-400">+94 77 058 7781</span>
+                      <a
+                        href="tel:+94770587781"
+                        className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                      >
+                        +94 77 058 7781
+                      </a>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Available: 9 AM - 6 PM (UTC+5:30)
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-lg">
+                  <div className="flex items-start space-x-4 p-4 bg-gray-700/30 rounded-lg hover:bg-gray-700/50 transition-colors">
                     <FaMapMarkerAlt className="text-cyan-400 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-medium text-gray-300">Location</p>
-                      <span className="text-gray-400">
+                      <span className="text-gray-400 text-sm">
                         Wasala Watta, Kottawa
                         <br />
                         Pannipitiya, Sri Lanka
@@ -396,33 +499,59 @@ export default function Contact() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Availability Status */}
-              <div className="bg-gradient-to-r from-green-900/50 to-cyan-900/50 p-6 rounded-2xl shadow-xl border border-green-700/50">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-green-400 font-semibold">
-                    Available for Projects
-                  </span>
+              {/* Response Time & Availability */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="bg-gradient-to-r from-green-900/50 to-cyan-900/50 p-6 rounded-2xl shadow-xl border border-green-700/50 hover:border-green-600 transition-all duration-300"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-green-400 font-semibold">
+                      Available for Projects
+                    </span>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Actively accepting new opportunities and collaborations.
+                    Average response time: 2-4 hours.
+                  </p>
+                  <div className="pt-3 border-t border-green-700/50">
+                    <p className="text-xs text-gray-400 flex items-center">
+                      <FaClock className="mr-2 text-yellow-400" />
+                      <span>
+                        Response SLA: Within 24 hours | For urgent: use WhatsApp
+                      </span>
+                    </p>
+                  </div>
                 </div>
-                <p className="text-gray-300 text-sm mt-2">
-                  Currently accepting new opportunities and collaborations
-                </p>
-              </div>
+              </motion.div>
             </div>
 
             {/* Right Column - Contact Form */}
             <div className="lg:col-span-3">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-700 relative overflow-hidden">
+              <motion.div
+                className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-700 relative overflow-hidden hover:border-cyan-500/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
                 <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-full -translate-y-20 -translate-x-20"></div>
 
                 <div className="relative z-10">
                   <div className="flex items-center mb-8">
                     <FaPaperPlane className="text-cyan-400 text-2xl mr-4" />
-                    <h4 className="text-2xl font-semibold text-cyan-400">
-                      Send Me a Message
-                    </h4>
+                    <div>
+                      <h4 className="text-2xl font-semibold text-cyan-400">
+                        Send Me a Message
+                      </h4>
+                      <p className="text-sm text-gray-400 mt-1">
+                        Fill out the form below and I'll get back to you shortly
+                      </p>
+                    </div>
                   </div>
 
                   <form
@@ -436,7 +565,7 @@ export default function Contact() {
                           htmlFor="name"
                           className="block text-sm font-medium mb-2 text-gray-300"
                         >
-                          Full Name *
+                          Full Name <span className="text-red-400">*</span>
                         </label>
                         <div className="relative">
                           <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-cyan-400 transition-colors" />
@@ -467,7 +596,7 @@ export default function Contact() {
                           htmlFor="email"
                           className="block text-sm font-medium mb-2 text-gray-300"
                         >
-                          Email Address *
+                          Email Address <span className="text-red-400">*</span>
                         </label>
                         <div className="relative">
                           <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-cyan-400 transition-colors" />
@@ -494,37 +623,106 @@ export default function Contact() {
                       </div>
                     </div>
 
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="group">
+                        <label
+                          htmlFor="phone"
+                          className="block text-sm font-medium mb-2 text-gray-300"
+                        >
+                          Phone Number{" "}
+                          <span className="text-gray-500 text-xs">
+                            (Optional)
+                          </span>
+                        </label>
+                        <div className="relative">
+                          <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-cyan-400 transition-colors" />
+                          <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handlePhoneChange}
+                            className={`w-full pl-10 pr-4 py-3 bg-gray-700/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all duration-300 ${
+                              errors.phone
+                                ? "border-red-500 focus:ring-red-500"
+                                : "border-gray-600 focus:border-cyan-400"
+                            }`}
+                            placeholder="+94123456789"
+                            maxLength={12}
+                          />
+                        </div>
+                        {errors.phone && (
+                          <p className="text-red-400 text-sm mt-2 flex items-center">
+                            <span className="mr-1">⚠</span>
+                            {errors.phone}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="group">
+                        <label
+                          htmlFor="category"
+                          className="block text-sm font-medium mb-2 text-gray-300"
+                        >
+                          Inquiry Type <span className="text-red-400">*</span>
+                        </label>
+                        <div className="relative">
+                          <FaCode className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-cyan-400 transition-colors pointer-events-none" />
+                          <select
+                            id="category"
+                            value={formData.category}
+                            onChange={handleChange}
+                            className="w-full pl-10 pr-4 py-3 bg-gray-700/50 border border-gray-600 focus:border-cyan-400 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all duration-300 appearance-none cursor-pointer text-gray-300"
+                          >
+                            <option value="general">General Inquiry</option>
+                            <option value="project">
+                              Project Collaboration
+                            </option>
+                            <option value="freelance">Freelance Work</option>
+                            <option value="hiring">Hiring Opportunity</option>
+                            <option value="other">Other</option>
+                          </select>
+                          <span className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
+                            ▼
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="group">
                       <label
-                        htmlFor="phone"
+                        htmlFor="subject"
                         className="block text-sm font-medium mb-2 text-gray-300"
                       >
-                        Phone Number{" "}
-                        <span className="text-gray-500">(Optional)</span>
+                        Subject <span className="text-red-400">*</span>
                       </label>
-                      <div className="relative">
-                        <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-cyan-400 transition-colors" />
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handlePhoneChange}
-                          className={`w-full pl-10 pr-4 py-3 bg-gray-700/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all duration-300 ${
-                            errors.phone
-                              ? "border-red-500 focus:ring-red-500"
-                              : "border-gray-600 focus:border-cyan-400"
-                          }`}
-                          placeholder="+94123456789"
-                          maxLength={12}
-                        />
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-3 bg-gray-700/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all duration-300 ${
+                          errors.subject
+                            ? "border-red-500 focus:ring-red-500"
+                            : "border-gray-600 focus:border-cyan-400"
+                        }`}
+                        placeholder="What's this about? (e.g., React Project Discussion)"
+                        maxLength={100}
+                      />
+                      <div className="flex justify-between items-start mt-2">
+                        <div>
+                          {errors.subject && (
+                            <p className="text-red-400 text-sm flex items-center">
+                              <span className="mr-1">⚠</span>
+                              {errors.subject}
+                            </p>
+                          )}
+                        </div>
+                        <span className="text-xs text-gray-500">
+                          {formData.subject.length}/100
+                        </span>
                       </div>
-                      {errors.phone && (
-                        <p className="text-red-400 text-sm mt-2 flex items-center">
-                          <span className="mr-1">⚠</span>
-                          {errors.phone}
-                        </p>
-                      )}
                     </div>
 
                     <div className="group">
@@ -532,7 +730,7 @@ export default function Contact() {
                         htmlFor="message"
                         className="block text-sm font-medium mb-2 text-gray-300"
                       >
-                        Your Message *
+                        Your Message <span className="text-red-400">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -540,6 +738,7 @@ export default function Contact() {
                         value={formData.message}
                         onChange={handleChange}
                         rows="6"
+                        maxLength={5000}
                         className={`w-full p-4 bg-gray-700/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all duration-300 resize-none ${
                           errors.message
                             ? "border-red-500 focus:ring-red-500"
@@ -547,49 +746,66 @@ export default function Contact() {
                         }`}
                         placeholder="Tell me about your project, ideas, or just say hello! I'd love to hear from you..."
                       ></textarea>
-                      {errors.message && (
-                        <p className="text-red-400 text-sm mt-2 flex items-center">
-                          <span className="mr-1">⚠</span>
-                          {errors.message}
-                        </p>
+                      <div className="flex justify-between items-start mt-2">
+                        <div>
+                          {errors.message && (
+                            <p className="text-red-400 text-sm flex items-center">
+                              <span className="mr-1">⚠</span>
+                              {errors.message}
+                            </p>
+                          )}
+                        </div>
+                        <span
+                          className={`text-xs font-medium ${
+                            formData.message.length > 4500
+                              ? "text-yellow-400"
+                              : "text-gray-500"
+                          }`}
+                        >
+                          {formData.message.length}/{maxMessageLength}
+                        </span>
+                      </div>
+                    </div>
+
+                    <motion.button
+                      type="submit"
+                      className={`w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center space-x-3 ${
+                        isSubmitting
+                          ? "opacity-70 cursor-not-allowed hover:scale-100"
+                          : ""
+                      }`}
+                      disabled={isSubmitting}
+                      whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                      whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                          <span>Sending Message...</span>
+                        </>
+                      ) : (
+                        <>
+                          <FaPaperPlane />
+                          <span>Send Message</span>
+                        </>
                       )}
-                    </div>
+                    </motion.button>
 
-                    <div className="pt-4">
-                      <button
-                        type="submit"
-                        className={`w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center space-x-3 ${
-                          isSubmitting
-                            ? "opacity-70 cursor-not-allowed hover:scale-100"
-                            : ""
-                        }`}
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                            <span>Sending Message...</span>
-                          </>
-                        ) : (
-                          <>
-                            <FaPaperPlane />
-                            <span>Send Message</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-
-                    <p className="text-gray-400 text-sm text-center mt-4">
-                      I typically respond within 24 hours. For urgent matters,
-                      feel free to reach me via WhatsApp.
+                    <p className="text-gray-400 text-xs text-center mt-4 leading-relaxed">
+                      💡 Pro Tip: Include as much detail as possible about your
+                      project or inquiry for a faster, more helpful response.
+                      For urgent matters, reach out via WhatsApp!
                     </p>
                   </form>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Page CTA - Connect to next page */}
+      <PageCTA currentPage="contact" />
 
       <Footer />
     </div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import PageCTA from "../components/PageCTA";
 import Education from "../components/Education";
 import {
   FaGraduationCap,
@@ -254,6 +255,9 @@ export default function EducationPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Page CTA - Connect to next page */}
+      <PageCTA currentPage="education" />
 
       <Footer />
     </div>
