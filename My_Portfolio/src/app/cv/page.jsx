@@ -220,7 +220,10 @@ export default function CVPage() {
               Download CV (PDF)
             </a>
             <button
-              onClick={() => typeof window !== 'undefined' && window.open("/PamalkaResumeSE.pdf", "_blank")}
+              onClick={() =>
+                typeof window !== "undefined" &&
+                window.open("/PamalkaResumeSE.pdf", "_blank")
+              }
               className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <FaArrowRight />

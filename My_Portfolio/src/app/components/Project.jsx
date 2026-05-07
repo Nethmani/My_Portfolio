@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   SiAndroid,
   SiExpress,
@@ -43,10 +43,8 @@ import {
   FaServer,
   FaHtml5,
   FaCss3Alt,
-  
 } from "react-icons/fa";
 import { FaFileCode, FaPalette } from "react-icons/fa6";
-
 
 export default function Project() {
   const [repos, setRepos] = useState([]);
@@ -64,39 +62,39 @@ export default function Project() {
   // Check for mobile viewport
   useEffect(() => {
     const checkMobile = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         setIsMobile(window.innerWidth < 768);
       }
     };
-    
+
     // Initial check
     checkMobile();
-    
+
     // Add event listener for window resize
-    window.addEventListener('resize', checkMobile);
-    
+    window.addEventListener("resize", checkMobile);
+
     // Cleanup
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
     async function fetchRepos() {
       try {
-        const response = await fetch('/api/github-ordered');
+        const response = await fetch("/api/github-ordered");
         const data = await response.json();
-        
+
         if (Array.isArray(data)) {
           setRepos(data);
         } else {
-          console.error('API did not return an array:', data);
-          setError(data.error || 'Failed to load repositories');
+          console.error("API did not return an array:", data);
+          setError(data.error || "Failed to load repositories");
           setRepos([]);
         }
-        
+
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching repos:', error);
-        setError('Failed to load repositories');
+        console.error("Error fetching repos:", error);
+        setError("Failed to load repositories");
         setRepos([]);
         setLoading(false);
       }
@@ -115,17 +113,20 @@ export default function Project() {
   // Enhanced image handling function with project descriptions
   const getProjectImage = (repo) => {
     const colors = {
-      JavaScript: '#f1e05a',
-      TypeScript: '#3178c6',
-      Python: '#3572A5',
-      Java: '#b07219',
-      HTML: '#e34c26',
-      CSS: '#563d7c',
-      default: '#6e5494'
+      JavaScript: "#f1e05a",
+      TypeScript: "#3178c6",
+      Python: "#3572A5",
+      Java: "#b07219",
+      HTML: "#e34c26",
+      CSS: "#563d7c",
+      default: "#6e5494",
     };
-    
-    const bgColor = repo.language && colors[repo.language] ? colors[repo.language] : colors.default;
-    
+
+    const bgColor =
+      repo.language && colors[repo.language]
+        ? colors[repo.language]
+        : colors.default;
+
     // Project descriptions and details
     const projectDetails = {
       PAF_Prj: {
@@ -274,26 +275,30 @@ export default function Project() {
       //   ]
       // },
     };
-    
+
     const project = projectDetails[repo.name] || {
       image: null,
-      description: repo.description || 'A full-stack project showcasing modern web development practices and technologies.'
+      description:
+        repo.description ||
+        "A full-stack project showcasing modern web development practices and technologies.",
     };
-    
+
     return {
       bgColor,
       repoName: project.displayName || repo.name,
       imagePath: project.image,
       description: project.description,
       homepage: project.homepage || repo.homepage,
-      fallbackUrl: `https://via.placeholder.com/300x200/${bgColor.replace('#', '')}?text=${encodeURIComponent(repo.name)}`
+      fallbackUrl: `https://via.placeholder.com/300x200/${bgColor.replace("#", "")}?text=${encodeURIComponent(repo.name)}`,
     };
   };
 
   return (
     <section id="projects" className="py-4 sm:py-6 md:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-6 sm:mb-8">My Projects</h2>
+        <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-6 sm:mb-8">
+          My Projects
+        </h2>
         {loading ? (
           <p className="text-center">Loading projects...</p>
         ) : error ? (
@@ -305,43 +310,73 @@ export default function Project() {
             {/* Slider Navigation */}
             {repos.length > projectsPerSlide && (
               <>
-                <button 
+                <button
                   onClick={prevSlide}
                   className="absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 bg-gray-800 p-2 sm:p-3 rounded-full shadow-lg hover:bg-gray-700 transition"
                   aria-label="Previous projects"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 sm:h-6 sm:w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                 </button>
-                <button 
+                <button
                   onClick={nextSlide}
                   className="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 bg-gray-800 p-2 sm:p-3 rounded-full shadow-lg hover:bg-gray-700 transition"
                   aria-label="Next projects"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 sm:h-6 sm:w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </>
             )}
-            
+
             {/* Project Cards Slider */}
             <div className="overflow-hidden">
-              <div 
+              <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {/* Group repos into pairs */}
-                {Array.from({ length: Math.ceil(repos.length / projectsPerSlide) }).map((_, slideIndex) => {
+                {Array.from({
+                  length: Math.ceil(repos.length / projectsPerSlide),
+                }).map((_, slideIndex) => {
                   const startIndex = slideIndex * projectsPerSlide;
-                  const slideRepos = repos.slice(startIndex, startIndex + projectsPerSlide);
-                  
+                  const slideRepos = repos.slice(
+                    startIndex,
+                    startIndex + projectsPerSlide,
+                  );
+
                   return (
-                    <div key={slideIndex} className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-                      {slideRepos.map(repo => {
+                    <div
+                      key={slideIndex}
+                      className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8"
+                    >
+                      {slideRepos.map((repo) => {
                         const projectImage = getProjectImage(repo);
-                        
+
                         return (
                           <div key={repo.id} className="h-full">
                             <div className="h-full bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:translate-y-[-5px] flex flex-col">
@@ -1060,16 +1095,18 @@ export default function Project() {
                 })}
               </div>
             </div>
-            
+
             {/* Slider Pagination */}
             {repos.length > projectsPerSlide && (
               <div className="flex justify-center mt-6 sm:mt-8">
-                {Array.from({ length: Math.ceil(repos.length / projectsPerSlide) }).map((_, index) => (
+                {Array.from({
+                  length: Math.ceil(repos.length / projectsPerSlide),
+                }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     className={`mx-1.5 sm:mx-2 h-1.5 sm:h-2 w-6 sm:w-8 rounded-full transition-colors ${
-                      currentSlide === index ? 'bg-blue-500' : 'bg-gray-600'
+                      currentSlide === index ? "bg-blue-500" : "bg-gray-600"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
