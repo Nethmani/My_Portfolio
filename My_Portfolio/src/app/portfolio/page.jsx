@@ -449,7 +449,9 @@ export default function PortfolioPage() {
   const downloadPDF = async () => {
     try {
       // Use browser's native print function to save as PDF
-      window.print();
+      if (typeof window !== 'undefined') {
+        window.print();
+      }
     } catch (error) {
       console.error("Print error:", error);
       alert("Please use your browser's print function (Ctrl+P) to save as PDF");
