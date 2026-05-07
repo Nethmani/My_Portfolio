@@ -890,7 +890,7 @@ export default function PortfolioPage() {
                 >
                   {/* Gradient accent */}
                   <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
+
                   <div className="relative z-10">
                     <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300">
                       {entry.title}
@@ -946,15 +946,17 @@ export default function PortfolioPage() {
               {careerPlan.map((stage, idx) => (
                 <motion.div
                   key={stage.horizon}
-                  className={`bg-gradient-to-br ${stage.color}/10 border border-${stage.color.split(' ')[1]}/20 rounded-2xl p-8 relative overflow-hidden group`}
+                  className={`bg-gradient-to-br ${stage.color}/10 border border-${stage.color.split(" ")[1]}/20 rounded-2xl p-8 relative overflow-hidden group`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 + idx * 0.1 }}
                   whileHover={{ scale: 1.02 }}
                 >
                   {/* Accent gradient */}
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${stage.color}/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                  
+                  <div
+                    className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${stage.color}/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  ></div>
+
                   <div className="relative z-10">
                     <div className="flex items-start gap-4 mb-6">
                       <div className={`text-5xl`}>{stage.icon}</div>
@@ -962,7 +964,9 @@ export default function PortfolioPage() {
                         <h3 className="text-3xl font-bold text-white mb-1">
                           {stage.title}
                         </h3>
-                        <p className="text-sm text-slate-400">{stage.horizon}</p>
+                        <p className="text-sm text-slate-400">
+                          {stage.horizon}
+                        </p>
                       </div>
                     </div>
 
@@ -975,7 +979,10 @@ export default function PortfolioPage() {
                         <ul className="space-y-3">
                           {stage.goals.map((goal, i) => (
                             <li key={i} className="flex gap-3">
-                              <FaStar className="text-yellow-400 flex-shrink-0 mt-1" size={16} />
+                              <FaStar
+                                className="text-yellow-400 flex-shrink-0 mt-1"
+                                size={16}
+                              />
                               <span className="text-slate-200 text-sm leading-relaxed">
                                 {goal}
                               </span>
@@ -992,7 +999,10 @@ export default function PortfolioPage() {
                         <ul className="space-y-3">
                           {stage.actions.map((action, i) => (
                             <li key={i} className="flex gap-3">
-                              <FaArrowRight className="text-cyan-400 flex-shrink-0 mt-1" size={16} />
+                              <FaArrowRight
+                                className="text-cyan-400 flex-shrink-0 mt-1"
+                                size={16}
+                              />
                               <span className="text-slate-200 text-sm leading-relaxed">
                                 {action}
                               </span>

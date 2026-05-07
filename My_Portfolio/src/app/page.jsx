@@ -41,8 +41,13 @@ import {
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 1000, height: 1000 });
 
   useEffect(() => {
+    setWindowSize({
+      width: typeof window !== "undefined" ? window.innerWidth : 1000,
+      height: typeof window !== "undefined" ? window.innerHeight : 1000,
+    });
     setMounted(true);
   }, []);
 
@@ -92,13 +97,13 @@ export default function Home() {
               key={tech.name}
               className="absolute opacity-20 pointer-events-none"
               initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
+                x: Math.random() * windowSize.width,
+                y: Math.random() * windowSize.height,
                 rotate: 0,
               }}
               animate={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
+                x: Math.random() * windowSize.width,
+                y: Math.random() * windowSize.height,
                 rotate: 360,
               }}
               transition={{
@@ -220,7 +225,6 @@ export default function Home() {
                   <FaDownload className="group-hover:animate-bounce" />
                   <span>Download CV</span>
                 </motion.a>
-
 
                 <motion.a
                   href="/contact"
